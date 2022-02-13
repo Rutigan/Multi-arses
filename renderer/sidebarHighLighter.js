@@ -1,10 +1,6 @@
 let btnImage = document.querySelectorAll('#btn-image');
 let btnBodyImage = document.querySelectorAll('#btn-options');
 let btnImagePath = document.querySelectorAll('path');
-let btnLogoCurrentPosition = document.querySelector('.sidebar__space_before');
-let btnDefaultRoll = document.querySelector('#btn-default-roll');
-let btnDefaultResize = document.querySelector('#btn-default-open');
-let btnDefaultClose = document.querySelector('#btn-default-close');
 let btnOptions = {
   desktop: document.querySelector('#btn[active="true"]'),
   record: document.querySelector('#btn-options-record'),
@@ -65,23 +61,8 @@ btnImagePath.forEach(item => {
   })
 });
 
-btnLogoCurrentPosition.addEventListener('click', (e) => {
-  e.target.classList.toggle('rotate90_smooth');
-});
 
 
-btnDefaultRoll.addEventListener('click', (e) => {
-  window.Bridge.rollDownApp();
-})
-
-btnDefaultResize.addEventListener('click', () => {
-  window.Bridge.resize()
-})
-
-
-btnDefaultClose.addEventListener('click', () => {
-  window.Bridge.appClose()
-})
 // * Тестирование коммуникаци
 // btnTestComminication.addEventListener('click', (e) => {
 //   console.log("Render > Main");

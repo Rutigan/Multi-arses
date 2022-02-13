@@ -1,0 +1,215 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  
+  width: 100%;
+  overflow: hidden;
+}
+/* -webkit-app-region: drag; */
+body {
+  font-family: 'Lato', sans-serif;
+  margin: auto;
+  max-width: 100vw;
+  max-height: 100vh;
+  background-color: #2F263C;
+  -webkit-user-select: none;
+}
+
+btn {
+  font-family: "Luckiest Guy", sans-serif;
+}
+
+main {
+  background-color: #2F263C;
+}
+
+.container {
+  background-color: #2F263C;
+  height: 600зч;
+  max-width: 80px;
+}
+.header {
+  display: flex;
+  flex-direction: row;
+  background-color: #C83B50;
+}
+
+.header__default_icons {
+  width: 80px;
+  height: 30px;
+  display: flex;
+}
+.header__default-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  color: none;
+  outline: none;
+  border: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  background: none;
+  position: relative;
+  -webkit-app-region: no-drag;
+}
+
+.header__default-button:hover {
+  transition: all 0.3s ease;
+  cursor: pointer;
+  background: none;
+  position: relative;
+  -webkit-app-region: no-drag;
+  background-color: #2F263C;
+  box-shadow: 0px 15px 25px rgba(226, 71, 94, 0.25);
+}
+.header__default-button:hover svg {
+  transition: all 0.3s ease;
+  cursor: pointer;
+  fill: #fff;
+  -webkit-app-region: no-drag;
+  
+}
+
+.header__default-button svg rect {
+  fill: none;
+  margin-bottom: 5px;
+}
+.header__default-button svg:last-child {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.header__default-button svg g{
+  width: 20px;
+  height: 20px;
+}
+#tupoeSVG {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  padding-top: 5px;
+}
+
+
+.header__default-button img:hover {
+  fill: #C83B50;
+}
+
+
+.main {
+  display: flex;
+  flex-direction: row;
+}
+/* ! sidebar ! */
+.sidebar {
+  height: calc(100vh);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.sidebar span {
+  width: 100%;
+  font-family: "Luckiest Guy", sans-serif;
+  color: #fff;
+  font-size: 12px;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.space_before {
+  height: 8%;
+  cursor: grab;
+  -webkit-app-region: drag;
+}
+/* .sidebar__space_before img {
+  
+} */
+.smooth {
+  transition: all 0.3s ease;
+}
+
+.rotate90_smooth {
+  transition: all 0.3s ease;
+  transform: rotate(90deg);
+}
+
+/* sidebar func */
+.sidebar__functions_container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.btn-options {
+  background-color: #2F263C;
+  color: none;
+  outline: none;
+  border: none;
+  width: 100%;
+  height: 65px;
+  margin-bottom: 10px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.btn-options svg {
+  max-height: 65px;
+  max-width: 65px;
+}
+
+
+.btn-options svg:hover { 
+  justify-self: center;
+  transition: all 0.3s ease;
+  width: calc(100% - 5px);
+  height: calc(65px - 5px);
+  box-shadow: 0px 15px 25px rgb(200, 59, 80, 0.25);
+  background-color: #C83B50;
+  border: 5px solid #C83B50;
+  border-radius: 5px;
+}
+.btn-options svg:hover path {
+  fill: #fff;
+}
+/* .btn-options:last-child svg:hover path:last-child {
+  fill: #2f263cbe;
+} */
+
+
+.btn-options__active {
+  cursor: pointer;
+  justify-self: center;
+  transition: all 0.3s ease;
+  width: calc(100% - 5px);
+  height: calc(65px - 5px);
+  box-shadow: 0px 15px 25px rgb(200, 59, 80, 0.25);
+  background-color: #C83B50;
+  border: 5px solid #C83B50;
+  border-radius: 5px;
+  margin-left: 0;
+}
+.btn-options__active__path {
+  fill: #fff;
+}
+.btn-options__active:last-child svg path:last-child {
+  fill: #2f263cbe;
+}
+
+.sidebar__space_after {
+  height: 8%;
+  -webkit-app-region: drag;
+  cursor: grab;
+}
+
+.sidebar__options_container {
+  display: flex;
+  justify-content: center;
+}

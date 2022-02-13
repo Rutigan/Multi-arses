@@ -15,8 +15,9 @@ let infoModalWindow = null;
 const createWindow = () => {
   // Create the browser window.
   mainWindow = new BrowserWindow({
-    width: 1000,
-    height: 800,
+    width: 80,
+    height: 600,
+    maxHeight: 800,
     darkTheme: true,
     backgroundColor: `#3a3a45`,
     frame: false,
@@ -40,9 +41,9 @@ const createWindow = () => {
     icon: "./icons/logo-fix.ico",
   });
   mainWindow.loadFile(path.join(__dirname, "/view", "index.html"));
-  mainWindow.setResizable(false);
+  mainWindow.setResizable(true);
   // * Open the DevTools.
-  mainWindow.webContents.openDevTools();
+  // mainWindow.webContents.openDevTools();
 };
 
 
@@ -110,9 +111,7 @@ ipcMain.on("createRecordModal", () => {
   function getCenterOfApp() {
     return pos ={  x: screen.width/2 - 870/2 + 40, y: screen.height/2 - 700/2 - 30}
   }
-
-  console.log(getCenterOfApp());
-  
+  getCenterOfApp();
   const createRecordModalWindow = () => {
     recordWindow = new BrowserWindow({
       width: 870,
@@ -125,7 +124,7 @@ ipcMain.on("createRecordModal", () => {
       y: pos.y,
       
     })
-    recordWindow.loadFile(path.join(__dirname, "/view", "record-inner-main.html"));
+    recordWindow.loadFile(path.join(__dirname, "/view", "record-full.html"));
   }
   
   createRecordModalWindow()
