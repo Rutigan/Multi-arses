@@ -1,0 +1,12 @@
+@font-face {
+  font-family: Lato;
+  src: local("Lato"),
+       url("fonts/Lato/Lato-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Luckiest Guy";
+  font-style: normal;
+  font-weight: normal;
+  src: local("Luckiest Guy"),
+       url("fonts/Luckiest_Guy/LuckiestGuy-Regular.ttf") format("truetype");
+}
