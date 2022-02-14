@@ -4,6 +4,7 @@
   --color-green: #479E70;
   --bulma-green: hsl(171, 100%, 41%);
   --bulma-red: hsl(348, 100%, 61%);
+  --orange: #C0390C;
 }
 
 .main__body {
@@ -35,12 +36,12 @@ video {
   position: absolute;
   height: 60px;
   background-color: #2F263C;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  /* box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); */
   border-radius: 0;
   bottom: 0;
-  padding: 18px;
   flex-direction: column;
   box-sizing: border-box;
+  transform: translateY(100%) translateY(-5px);
 }
 
 
@@ -50,13 +51,9 @@ video {
   height: 1px;
   background-color: var(--colored-light);
   position: relative;
-  border: 1px solid #FF6B81;
+  border: 5px solid var(--colored-light);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-}
-.main__controls-bar img {
-  position: absolute;
-  top: -11px;
-  left: -5px;
+  box-sizing: border-box;
 }
 
 .main__controls-buttons {
