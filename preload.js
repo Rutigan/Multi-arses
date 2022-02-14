@@ -1,4 +1,4 @@
-const { contextBridge, ipcRenderer, ipcMain } = require("electron");
+const { contextBridge, ipcRenderer } = require("electron");
 
 // ! initialization ! \\
 
@@ -13,7 +13,6 @@ let createDesktopModalWindow = (trigger) => {
     ipcRenderer.send("createDesktopModal", trigger);
 }
 let createRecordModalWindow = () => {
-    console.log("Creating record modal window...");
     ipcRenderer.send("createRecordModal");
 } 
 
@@ -27,8 +26,15 @@ let appClose = () => {
 let resize = () => {
     ipcRenderer.send("Resize", "Resizing window")
 }
-
-// ! initialization OVER ! \\
+let rollDownModalRecord = () => {
+    ipcRenderer.send("RollModal", currentWindow)
+}
+let CloseModalRecord = () => {
+    ipcRenderer.send("CloseModal", currentWindow)
+}
+let resizeModalRecord = () => {
+    ipcRenderer.send("ResizeModal", currentWindow)
+}
 
 // * Connection * \\
 
@@ -38,7 +44,10 @@ let indexBridge = {
     createRecordModalWindow: createRecordModalWindow,
     rollDownApp: rollDownApp,
     appClose: appClose,
-    resize: resize
+    resize: resize,
+    rollDownModalRecord: rollDownModalRecord,
+    CloseModalRecord: CloseModalRecord,
+    resizeModalRecord: resizeModalRecord,
 };
 
 contextBridge.exposeInMainWorld("Bridge", indexBridge);

@@ -1,0 +1,129 @@
+:root {
+  --colored-light: #FF6B81; 
+  --colored-light-less: #C83B50; 
+  --color-green: #479E70;
+  --bulma-green: hsl(171, 100%, 41%);
+  --bulma-red: hsl(348, 100%, 61%);
+}
+
+.main__body {
+  width: 870px;
+  height: 700px;
+  border: 1px solid wheat;
+  display: flex;
+  justify-content: center;
+}
+
+.main__video-container {
+  width: 800px;
+  height: 600px;
+  position: relative;
+  padding: 0;
+  margin: 0;
+}
+
+video {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, .16);
+  
+}
+
+.main__controls {
+  display: flex;
+  width: 100%;
+  position: absolute;
+  height: 60px;
+  background-color: #2F263C;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 0;
+  bottom: 0;
+  padding: 18px;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+
+
+.main__controls-bar {
+  width: 100%;
+  height: 1px;
+  background-color: var(--colored-light);
+  position: relative;
+  border: 1px solid #FF6B81;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+.main__controls-bar img {
+  position: absolute;
+  top: -11px;
+  left: -5px;
+}
+
+.main__controls-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+  color: white;
+}
+
+.time__start, .time__end {
+  font-size: 13px;
+}
+.time__start {
+  margin-left: 5px;
+  box-sizing: border-box;
+}
+
+.main__contols-buttons-container {
+  display: flex;
+  align-items: center;
+  
+}
+.main__contols-buttons-container button {
+  background: none;
+  border: 0;
+  outline: 0;
+}
+
+
+.to__end {
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  
+}
+
+
+.screen__recorder-container {
+  position: absolute;
+  left: 20%;
+}
+
+.screen__recorder-container button {
+  background: none;
+  color: white;
+  background-color: #C83B50;
+  width: auto;
+  border: 0;
+  outline: 0;
+  height: auto;
+}
+
+.screen__recorder-container button:first-child {
+  background-color: var(--bulma-green);
+  border-radius: 2px;
+  width: auto;
+  height: 20px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+.screen__recorder-container button:last-child {
+  background-color: var(--bulma-red);
+  border-radius: 2px;
+  width: auto;
+  height: 20px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+

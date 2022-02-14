@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="../styles/default-modal.css">
   <link rel="stylesheet" href="../styles/fonts.css">
   <link rel="preload" href="../fonts/Luckiest_Guy/LuckiestGuy-Regular.ttf" as="font">
+  <link rel="stylesheet" href="../styles/record.css">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
 </head>
@@ -21,7 +22,7 @@
         </div>
         <div class="header__space"></div>
         <div class="header__default_icons">
-          <button class="header__default-button" id="btn-default-roll">
+          <button class="header__default-button" id="btn-modal-record-roll">
             <svg width="10" height="1" viewBox="0 0 10 1" xmlns="http://www.w3.org/2000/svg">
               <line y1="0.5" x2="10" y2="0.5" stroke="#fff" />
             </svg>
@@ -57,7 +58,37 @@
     </header>
     <main class="main">
       <div class="main__body">
-
+        <div class="main__video-container">
+          <video src=""></video>
+          <div class="main__controls">
+            <div class="main__controls-bar">
+              <img src="../icons/record/current-time.svg" alt="" srcset="">
+            </div>
+            <div class="main__controls-buttons">
+              <div class="time__start">
+                00:00:00
+              </div>
+              <div class="screen__recorder-container">
+                <button id="record-start record-btn" class="record-start">Запись</button>
+                <button id="record-save record-btn" class="record-save">Завершить</button>
+              </div>
+              <div class="main__contols-buttons-container">
+                <button class="to-start">
+                  <img src="../icons/record/to-start-triangle-inner.svg" alt="" srcset="">
+                </button>
+                <button id="play-pause">
+                  <img src="../icons/record/record-start.svg" alt="" srcset="">
+                </button>
+                <button id="to-end">
+                  <img class="to__end_img"  src="../icons/record/to-end-triangle-inner.svg" alt="" srcset="">
+                </button>
+              </div>
+              <div class="time__end">
+                00:00:00
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </main>
     <footer class="footer">
@@ -72,11 +103,11 @@
   </div>
   <script>
   </script>
-  <script src="../renderer/default-btn.js"></script>
+  <script src="../renderer/default-btn-modal-record.js"></script>
   <script src="../renderer/sidebarHighLighter.js"></script>
   <script src="../renderer/desktop.js"></script>
   <script src="../renderer/screenCaptuter.js"></script>
-  <script src="../renderer/sidebarController.js"></script>
+  <script src="../renderer/record/record.js"></script>
 </body>
 
 </html>
