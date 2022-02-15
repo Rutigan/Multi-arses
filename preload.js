@@ -35,6 +35,9 @@ let CloseModalRecord = () => {
 let resizeModalRecord = () => {
     ipcRenderer.send("ResizeModal", currentWindow)
 }
+let selectVideo = () => {
+    ipcRenderer.send("Record-Select-Video", "selecting video");
+}
 
 // * Connection * \\
 
@@ -48,6 +51,7 @@ let indexBridge = {
     rollDownModalRecord: rollDownModalRecord,
     CloseModalRecord: CloseModalRecord,
     resizeModalRecord: resizeModalRecord,
+    selectVideo: selectVideo,
 };
 
 contextBridge.exposeInMainWorld("Bridge", indexBridge);

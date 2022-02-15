@@ -1,4 +1,4 @@
-const { app, BrowserWindow, ipcMain } = require("electron");
+const { app, BrowserWindow, ipcMain, desktopCapturer, Menu } = require("electron");
 const path = require("path");
 const fs = require("fs");
 const moment = require("moment");
@@ -161,3 +161,24 @@ ipcMain.on("CloseModal", (currentWindow) => {
 ipcMain.on("ResizeModal", (currentWindow) => {
   console.log("Resize!");
 });
+
+ipcMain.on("Record-Select-Video", () => {
+  recordWindow.on()
+  console.log("!!!!!!!!!!");
+  // const inputSources = desktopCapturer.getSources({
+  //   types: ['window', 'screen']
+  // });
+
+  // console.log("ppppppppp");
+
+  // const videoMenu = Menu.buildFromTemplate(
+  //   inputSources.map(source => {
+  //     return {
+  //       label: source.name,
+  //       click: () => selectSource(source)
+  //     }
+  //   })
+  // );
+  // console.log("!!!!!!!!!!");
+  // videoMenu.popup();
+})

@@ -16,10 +16,6 @@
   <div class="container">
     <header class="header">
       <div class="header__container">
-        <div class="header__logo_container">
-          <img src="../icons/logo.svg" alt="" srcset="" width="30px" height="50px">
-          <span>Multi Arses</span>
-        </div>
         <div class="header__space"></div>
         <div class="header__default_icons">
           <button class="header__default-button" id="btn-modal-record-roll">
@@ -59,18 +55,15 @@
     <main class="main">
       <div class="main__body">
         <div class="main__video-container">
-          <video src=""></video>
+          <video src="" class="smooth"></video>
           <div class="main__controls">
-            <div class="main__controls-bar">
+            <div class="main__controls-bar smooth">
             </div>
-            <div class="main__controls-buttons">
+            <div class="main__controls-buttons smooth">
               <div class="time__start">
                 00:00:00
               </div>
-              <div class="screen__recorder-container">
-                <button id="record-start record-btn" class="record-start">Запись</button>
-                <button id="record-save record-btn" class="record-save">Завершить</button>
-              </div>
+              
               <div class="main__contols-buttons-container">
                 <button class="to-start">
                   <img src="../icons/record/to-start-triangle-inner.svg" alt="" srcset="">
@@ -88,16 +81,40 @@
             </div>
           </div>
         </div>
-      </div>
-    </main>
-    <footer class="footer">
-      <div class="footer__right_icons">
-        <span id="process">Процесс...</span>
-        <img src="../icons/default-right-icons.svg" alt="" srcset="">
-        <img src="../icons/Polygon 1.svg" alt="" srcset="">
-      </div>
+        <div class="main__other-container">
 
-    </footer>
+
+          <div class="screen__recorder-container">
+            <button id="record-start record-btn" class="record-start">Запись</button>
+            <button id="record-save record-btn" class="record-stop">Завершить</button>
+          </div>
+
+          <div class="main__other-info">
+            <span>Рабочий стол 2022-26-01-11:22</span>
+            <span>Рабочий стол</span>
+            <span>26 января 2022 год</span>
+            <span>2.1 мб</span>
+          </div>
+
+          <div class="main__other-shortcuts">
+            <div class="other__openfolder-container">
+              <span>Открыть папку с файлами F + O</span>
+              <span id="record-choose">Сохранить в директорию</span>
+              <span>Вставить видео F + V</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <footer class="footer">
+        <div class="footer__right_icons">
+          <span id="process">Процесс...</span>
+          <img src="../icons/default-right-icons.svg" alt="" srcset="">
+          <img src="../icons/Polygon 1.svg" alt="" srcset="">
+        </div>
+  
+      </footer>
+    </main>
+    
 
   </div>
   <script>
@@ -105,7 +122,6 @@
   <script src="../renderer/default-btn-modal-record.js"></script>
   <script src="../renderer/sidebarHighLighter.js"></script>
   <script src="../renderer/desktop.js"></script>
-  <script src="../renderer/screenCaptuter.js"></script>
   <script src="../renderer/record/record.js"></script>
 </body>
 
