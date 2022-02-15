@@ -36,7 +36,7 @@ let resizeModalRecord = () => {
     ipcRenderer.send("ResizeModal", currentWindow)
 }
 let selectVideo = () => {
-    ipcRenderer.send("RecordSelectVideo", "selecting video");
+    ipcRenderer.send("RecordSelectVideo");
 }
 let recordRollDown = () => {
     ipcRenderer.send("RecordRollDown")

@@ -5,6 +5,7 @@ const moment = require("moment");
 const nodeDiskInfo = require("node-disk-info");
 const robot = require("robotjs");
 const activeWindows = require("electron-active-window");
+var IPCStream = require('electron-ipc-stream');
 
 // !
 
@@ -180,6 +181,19 @@ ipcMain.on("RecordSelectVideo", async () => {
     })
   );
   videoMenu.popup();
+
+  // async function selectSource(source) {
+  //   const constrains = {
+  //     audio: false,
+  //     video: {
+  //       mandatory: {
+  //         chromeMediaSource: 'desktop',
+  //         chromeMediaSourceId: source.id,
+  //       }
+  //     }
+  //   };
+  //   const stream = await navigator.mediaDevices.getUserMedia(constrains);
+  // }
 });
 
 
