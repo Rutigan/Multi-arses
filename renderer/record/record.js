@@ -9,20 +9,26 @@ let btnClose = document.querySelector('#btn-modal-record-close');
 
 btnRoll.addEventListener('click', () =>{
   window.Bridge.recordRollDown()
-})
+});
 btnResize.addEventListener('click', () =>{
   window.Bridge.recordResize()
-})
+});
 btnClose.addEventListener('click', () =>{
   window.Bridge.recordClose()
-})
-
-console.log(selectVideoBtn);
+});
 
 selectVideoBtn.addEventListener('click', () => {
   window.Bridge.selectVideo();
+});
+
+stopBtn.addEventListener('click', () => {
+  window.Bridge.stopRecording()
 })
 
-function getVideoSources() {
-  window.Bridge.selectVideo();
-}
+
+window.Bridge.stream((event, incounter)=>{
+  console.log(incounter);
+  videoElement.srcObject = stream;
+  videoElement.play();
+});
+

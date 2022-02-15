@@ -3,66 +3,72 @@ const { contextBridge, ipcRenderer } = require("electron");
 // ! initialization ! \\
 
 let sendSubmit = (lead) => {
-    console.log(lead);
-    console.log("Main > Renderer");
-    ipcRenderer.send('gotLead', lead)
+  console.log(lead);
+  console.log("Main > Renderer");
+  ipcRenderer.send("gotLead", lead);
 };
 
 let createDesktopModalWindow = (trigger) => {
-    console.log("Creating desktop modal window...");
-    ipcRenderer.send("createDesktopModal", trigger);
-}
+  console.log("Creating desktop modal window...");
+  ipcRenderer.send("createDesktopModal", trigger);
+};
 let createRecordModalWindow = () => {
-    ipcRenderer.send("createRecordModal");
-} 
+  ipcRenderer.send("createRecordModal");
+};
 
 let rollDownApp = () => {
-    ipcRenderer.send("Roll", "rolling down")
-}
+  ipcRenderer.send("Roll", "rolling down");
+};
 
 let appClose = () => {
-    ipcRenderer.send("Close", "Closing app")
-}
+  ipcRenderer.send("Close", "Closing app");
+};
 let resize = () => {
-    ipcRenderer.send("Resize", "Resizing window")
-}
+  ipcRenderer.send("Resize", "Resizing window");
+};
 let rollDownModalRecord = () => {
-    ipcRenderer.send("RollModal", currentWindow)
-}
+  ipcRenderer.send("RollModal", currentWindow);
+};
 let CloseModalRecord = () => {
-    ipcRenderer.send("CloseModal", currentWindow)
-}
+  ipcRenderer.send("CloseModal", currentWindow);
+};
 let resizeModalRecord = () => {
-    ipcRenderer.send("ResizeModal", currentWindow)
-}
+  ipcRenderer.send("ResizeModal", currentWindow);
+};
 let selectVideo = () => {
-    ipcRenderer.send("RecordSelectVideo");
-}
+  ipcRenderer.send("RecordSelectVideo");
+};
 let recordRollDown = () => {
-    ipcRenderer.send("RecordRollDown")
-}
+  ipcRenderer.send("RecordRollDown");
+};
 let recordResize = () => {
-    ipcRenderer.send("RecordResize");
-}
+  ipcRenderer.send("RecordResize");
+};
 let recordClose = () => {
-    ipcRenderer.send("RecordClose");
+  ipcRenderer.send("RecordClose");
+};
+let stopRecording = () => {
+    ipcRenderer.send("StopRecording", "STOP")
 }
+
 // * Connection * \\
 
 let indexBridge = {
-    sendSubmit: sendSubmit,
-    createDesktopModalWindow: createDesktopModalWindow,
-    createRecordModalWindow: createRecordModalWindow,
-    rollDownApp: rollDownApp,
-    appClose: appClose,
-    resize: resize,
-    rollDownModalRecord: rollDownModalRecord,
-    CloseModalRecord: CloseModalRecord,
-    resizeModalRecord: resizeModalRecord,
-    selectVideo: selectVideo,
-    recordRollDown: recordRollDown,
-    recordResize: recordResize,
-    recordClose: recordClose
+  sendSubmit: sendSubmit,
+  createDesktopModalWindow: createDesktopModalWindow,
+  createRecordModalWindow: createRecordModalWindow,
+  rollDownApp: rollDownApp,
+  appClose: appClose,
+  resize: resize,
+  rollDownModalRecord: rollDownModalRecord,
+  CloseModalRecord: CloseModalRecord,
+  resizeModalRecord: resizeModalRecord,
+  selectVideo: selectVideo,
+  recordRollDown: recordRollDown,
+  recordResize: recordResize,
+  recordClose: recordClose,
+  stopRecording: stopRecording,
+  stream: (callback) => ipcRenderer.on("stream", (callback)),
 };
 
 contextBridge.exposeInMainWorld("Bridge", indexBridge);
