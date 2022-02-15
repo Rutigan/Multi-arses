@@ -50,6 +50,10 @@ let recordClose = () => {
 let stopRecording = () => {
     ipcRenderer.send("StopRecording", "STOP")
 }
+let saveVideo = (buffer) => {
+  console.log(buffer);
+  ipcRenderer.on("saveVideo", buffer);
+}
 
 // * Connection * \\
 
@@ -69,6 +73,8 @@ let indexBridge = {
   recordClose: recordClose,
   stopRecording: stopRecording,
   stream: (callback) => ipcRenderer.on("stream", (callback)),
+  Time: (callback) => ipcRenderer.on("Time", (callback)),
+  saveVideo: saveVideo,
 };
 
 contextBridge.exposeInMainWorld("Bridge", indexBridge);

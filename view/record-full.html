@@ -83,34 +83,44 @@
         </div>
         <div class="main__other-container">
 
+          <div class="main__other_top">
+            <div class="screen__recorder-container">
+              <button id="record-start record-btn" class="record-start">Запись</button>
+              <button id="record-choose">Выбрать экран</button>
+              <button id="record-save record-btn" class="record-stop">Завершить</button>
+            </div>
 
-          <div class="screen__recorder-container">
-            <button id="record-start record-btn" class="record-start">Запись</button>
-            <button id="record-choose">Выбрать экран</button>
-            <button id="record-save record-btn" class="record-stop">Завершить</button>
-          </div>
+          
+            
 
-        
-          <div class="main__other-info">
-            <span>Рабочий стол 2022-26-01-11:22</span>
-            <span>Рабочий стол</span>
-            <span>26 января 2022 год</span>
-            <span>2.1 мб</span>
-          </div>
-
-          <div class="main__other-shortcuts">
-            <div class="other__openfolder-container">
-              <span>Открыть папку с файлами F + O</span>
-              <span>Быстрое перемещение F + M</span>
-              <span>Вставить видео F + V</span>
+            <div class="main__other-shortcuts">
+              <div class="other__openfolder-container">
+                <span>Открыть директорию</span>
+                <span>Быстрое перемещение </span>
+                <span>Вставить видео</span>
+              </div>
             </div>
           </div>
+
+          
+          <div class="main__other_tittle">
+            <div class="main__other-info">
+              <!-- <span id="infoTime">Рабочий стол 2022-26-01-11:22</span> -->
+              <span id="infoDesktop">...</span>
+              <!-- <span id="infoDate">26 января 2022 год</span> -->
+              <span></span>
+            </div>
+          </div>
+            
         </div>
       </div>
       <footer class="footer">
         <div class="footer__right_icons">
-          <span id="process">Процесс...</span>
-          <img src="../icons/default-right-icons.svg" alt="" srcset="">
+          <span id="process">...</span>
+          <svg id="indicator" width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="0.5" y="0.5" width="9" height="9" rx="4.5" stroke="#C83B50"/>
+          </svg>
+            
           <img src="../icons/Polygon 1.svg" alt="" srcset="">
         </div>
   

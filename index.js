@@ -1,4 +1,4 @@
-const { app, BrowserWindow, ipcMain, desktopCapturer, Menu } = require("electron");
+const { app, BrowserWindow, ipcMain, desktopCapturer, Menu, dialog } = require("electron");
 const path = require("path");
 const fs = require("fs");
 const moment = require("moment");
@@ -156,6 +156,17 @@ ipcMain.on("Resize", () => {
 });
 
 // * ----- * \\
+ipcMain.on("RecordRollDown", () => {
+  recordWindow.minimize()
+});
+
+ipcMain.on("RecordResize", () => {
+  console.log("resize");
+});
+
+ipcMain.on("RecordClose", () => {
+  recordWindow.close();
+});
 
 ipcMain.on("RollModal", (currentWindow) => {
   currentWindow.minimize();
@@ -179,53 +190,27 @@ ipcMain.on("RecordSelectVideo", async () => {
     inputSources.map(source => {
       return {
         label: source.name,
-        click: () => selectSource(source)
+        click: () => recordWindow.webContents.send("stream", source)
       }
     })
   );
   videoMenu.popup();
 
-  
-
-  async function selectSource(source) {
-    const constrains = {
-      audio: false,
-      video: {
-        mandatory: {
-          chromeMediaSource: 'desktop',
-          chromeMediaSourceId: source.id,
-        }
-      }
-    };
-    const stream = await navigator.mediaDevices.getUserMedia(constrains); 
-
-    let allow = ipcMain.on("StopRecording", (word) => {return word});
-
-    console.log("ON");
-    
-    let incounter = 0;
-    setInterval(() => {
-      incounter++;
-      console.log(incounter);
-      recordWindow.webContents.send("stream", stream);
-      if (allow) {return}
-    }, 10);
-  }
-  
-  
 });
 
-
-
-ipcMain.on("RecordRollDown", () => {
-  recordWindow.minimize()
+ipcMain.on("geTime", () => {
+  let time = moment().format('MMMM Do YYYY, h:mm:ss a');
+  recordWindow.webContents.send("Time", time)
 });
 
-ipcMain.on("RecordResize", () => {
-  console.log("resize");
-});
+ipcMain.on("saveVideo", async (buffer) => {
+  console.log("dfdfdf");
+  let contentVideoFile = buffer;
+  let time = moment().format('MMMM Do YYYY, h:mm:ss a');
+  const { filePath } = await dialog.showSaveDialog({
 
-ipcMain.on("RecordClose", () => {
-  recordWindow.close();
-});
-
+    buttonLabel: 'Сохранить видео',
+    defaultPath: `vid-${time.trim()}.webm`
+  });
+  fs.writeFile(filePath, contentVideoFile, console.log(`Video was saved successfully`))
+})
