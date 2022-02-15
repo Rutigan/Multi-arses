@@ -36,9 +36,17 @@ let resizeModalRecord = () => {
     ipcRenderer.send("ResizeModal", currentWindow)
 }
 let selectVideo = () => {
-    ipcRenderer.send("Record-Select-Video", "selecting video");
+    ipcRenderer.send("RecordSelectVideo", "selecting video");
 }
-
+let recordRollDown = () => {
+    ipcRenderer.send("RecordRollDown")
+}
+let recordResize = () => {
+    ipcRenderer.send("RecordResize");
+}
+let recordClose = () => {
+    ipcRenderer.send("RecordClose");
+}
 // * Connection * \\
 
 let indexBridge = {
@@ -52,6 +60,9 @@ let indexBridge = {
     CloseModalRecord: CloseModalRecord,
     resizeModalRecord: resizeModalRecord,
     selectVideo: selectVideo,
+    recordRollDown: recordRollDown,
+    recordResize: recordResize,
+    recordClose: recordClose
 };
 
 contextBridge.exposeInMainWorld("Bridge", indexBridge);

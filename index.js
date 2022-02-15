@@ -127,6 +127,9 @@ ipcMain.on("createRecordModal", () => {
       darkTheme: true,
       // parent: mainWindow,
       frame: false,
+      webPreferences: {
+        preload: path.join(app.getAppPath(), "preload.js"),
+      },
       x: pos.x,
       y: pos.y,
     });
@@ -162,23 +165,33 @@ ipcMain.on("ResizeModal", (currentWindow) => {
   console.log("Resize!");
 });
 
-ipcMain.on("Record-Select-Video", () => {
-  recordWindow.on()
-  console.log("!!!!!!!!!!");
-  // const inputSources = desktopCapturer.getSources({
-  //   types: ['window', 'screen']
-  // });
+ipcMain.on("RecordSelectVideo", async () => {
+  const inputSources = await desktopCapturer.getSources({
+    types: ['window', 'screen']
+  });
 
-  // console.log("ppppppppp");
 
-  // const videoMenu = Menu.buildFromTemplate(
-  //   inputSources.map(source => {
-  //     return {
-  //       label: source.name,
-  //       click: () => selectSource(source)
-  //     }
-  //   })
-  // );
-  // console.log("!!!!!!!!!!");
-  // videoMenu.popup();
-})
+  const videoMenu = Menu.buildFromTemplate(
+    inputSources.map(source => {
+      return {
+        label: source.name,
+        click: () => selectSource(source)
+      }
+    })
+  );
+  videoMenu.popup();
+});
+
+
+ipcMain.on("RecordRollDown", () => {
+  recordWindow.minimize()
+});
+
+ipcMain.on("RecordResize", () => {
+  console.log("resize");
+});
+
+ipcMain.on("RecordClose", () => {
+  recordWindow.close();
+});
+

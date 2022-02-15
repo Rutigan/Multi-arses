@@ -145,7 +145,7 @@ video:hover .main__controls{
   white-space: nowrap;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   letter-spacing: 2px;
-  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
 }
 .screen__recorder-container button:last-child {
   background-color: var(--yellow);
@@ -165,7 +165,7 @@ video:hover .main__controls{
   color: var(--bg-color-lighter);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   letter-spacing: 1px;
-  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
 }
 
 
@@ -184,8 +184,33 @@ video:hover .main__controls{
   justify-content: space-around;
   padding-top: 20px;
   color: white;
-  font-size: 14px;
+  font-size: 12px;
   line-height: 14px;
+  position: relative;
+}
+
+#record-choose {
+  background-color: hsl(0, 0%, 96%);
+  position: absolute;
+  bottom: 10px;
+  left: 30px;
+  border-radius: 20px;
+  font-size: 20px;
+  height: 40px;
+  font-weight: 900;
+  font-family: "Lato", sans-serif;
+  cursor: pointer;
+  justify-content: center;
+  padding-bottom: calc(0.5em - 1px);
+  padding-left: 1em;
+  padding-right: 1em;
+  padding-top: calc(0.5em - 1px);
+  text-align: center;
+  white-space: nowrap;
+  color: var(--bg-color-lighter);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  letter-spacing: 1px;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
 }
 
 .other__openfolder-container {
@@ -206,6 +231,6 @@ video:hover .main__controls{
   white-space: nowrap;
   color: var(--bg-color-lighter);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  letter-spacing: 1px;
+  letter-spacing: 0.8px;
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
