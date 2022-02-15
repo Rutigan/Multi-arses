@@ -50,9 +50,8 @@ let recordClose = () => {
 let stopRecording = () => {
     ipcRenderer.send("StopRecording", "STOP")
 }
-let saveVideo = (buffer) => {
-  console.log(buffer);
-  ipcRenderer.on("saveVideo", buffer);
+let saveVideo = (recorderChunks) => {
+  ipcRenderer.send("saveVideo", recorderChunks);
 }
 
 // * Connection * \\

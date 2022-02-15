@@ -1,3 +1,4 @@
+
 const videoElement = document.querySelector('video');
 
 let startBtn = document.querySelector('.record-start');
@@ -30,7 +31,6 @@ stopBtn.addEventListener('click', () => {
   window.Bridge.stopRecording()
 })
 
-console.log(Buffer);
 
 window.Bridge.stream((event, stream)=>{
   const source = stream;
@@ -53,26 +53,26 @@ window.Bridge.stream((event, stream)=>{
     const stream = await navigator.mediaDevices.getUserMedia(constrains); 
     videoElement.srcObject = stream;
     videoElement.play();
+
+
     const options = { mainType: 'video/webm; codecs=vp9' };
+
     mediaRecorder = new MediaRecorder(stream, options);
     mediaRecorder.ondataavailable = handleDataAvaliable;
-    mediaRecorder.onstop = handleStop;
+    // mediaRecorder.onstop = handleStop;
+
+
     function handleDataAvaliable(e) {
       recorderChunks.push(e.data);
     };
-    async function handleStop(e) {
-      const blob = new Blob(recorderChunks, {
-        type: 'video/webm; codecs=vp9'
-      });
-      
-      const buffer = Buffer.from(await blob.arrayBuffer());
-      
-      await window.Bridge.saveVideo(buffer);
+    function handleStop() {
+      window.Bridge.saveVideo(recorderChunks);
     }
     
 
     stopBtn.onclick = e => {
       mediaRecorder.stop();
+      handleStop();
     };
     startBtn.onclick = e => {
       mediaRecorder.start();

@@ -5,6 +5,8 @@ const moment = require("moment");
 const nodeDiskInfo = require("node-disk-info");
 const robot = require("robotjs");
 const activeWindows = require("electron-active-window");
+const buffer = require('buffer');
+const { Blob } = buffer;
 
 // !
 
@@ -203,14 +205,19 @@ ipcMain.on("geTime", () => {
   recordWindow.webContents.send("Time", time)
 });
 
-ipcMain.on("saveVideo", async (buffer) => {
-  console.log("dfdfdf");
-  let contentVideoFile = buffer;
+ipcMain.on("saveVideo", async (recorderChunks) => {
   let time = moment().format('MMMM Do YYYY, h:mm:ss a');
+
+  const blob = new Blob(recorderChunks, {
+    type: 'video/webm; codecs=vp9'
+  });
+  
+  const buffer = Buffer.from(await blob.arrayBuffer());
+
   const { filePath } = await dialog.showSaveDialog({
 
     buttonLabel: 'Сохранить видео',
     defaultPath: `vid-${time.trim()}.webm`
   });
-  fs.writeFile(filePath, contentVideoFile, console.log(`Video was saved successfully`))
+  fs.writeFile(filePath, buffer, console.log(`Video was saved successfully`))
 })
