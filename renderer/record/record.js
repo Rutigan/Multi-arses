@@ -26,8 +26,8 @@ stopBtn.addEventListener('click', () => {
 })
 
 
-window.Bridge.stream((event, incounter)=>{
-  console.log(incounter);
+window.Bridge.stream((event, stream)=>{
+  console.log(stream);
   videoElement.srcObject = stream;
   videoElement.play();
 });

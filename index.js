@@ -185,6 +185,8 @@ ipcMain.on("RecordSelectVideo", async () => {
   );
   videoMenu.popup();
 
+  
+
   async function selectSource(source) {
     const constrains = {
       audio: false,
@@ -196,18 +198,20 @@ ipcMain.on("RecordSelectVideo", async () => {
       }
     };
     const stream = await navigator.mediaDevices.getUserMedia(constrains); 
-  }
-  let allow = ipcMain.on("StopRecording", (word) => {return word});
 
-  console.log("ON");
+    let allow = ipcMain.on("StopRecording", (word) => {return word});
+
+    console.log("ON");
+    
+    let incounter = 0;
+    setInterval(() => {
+      incounter++;
+      console.log(incounter);
+      recordWindow.webContents.send("stream", stream);
+      if (allow) {return}
+    }, 10);
+  }
   
-  let incounter = 0;
-  setInterval(() => {
-    incounter++;
-    console.log(incounter);
-    recordWindow.webContents.send("stream", incounter);
-    if (allow) {return}
-  }, 10);
   
 });
 
